@@ -292,6 +292,13 @@ section {
     line-height: 1.7;
 }
 
+.about-features h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
 .features-list {
     list-style: none;
 }
@@ -314,12 +321,35 @@ section {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 3rem;
+}
+
+.team-section h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
 }
 
 .team-member {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .member-avatar i {
@@ -343,6 +373,131 @@ section {
 .member-info p:last-of-type {
     color: #6b7280;
     font-size: 0.9rem;
+}
+
+/* Team loading and error states */
+.team-loading, .team-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.team-loading {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.team-loading i {
+    color: #2563eb;
+    font-size: 1.2rem;
+}
+
+.team-error {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.team-error i {
+    color: #dc2626;
+    font-size: 1.2rem;
+}
+
+/* Member avatar with image support */
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    margin: 0 auto 1.5rem auto;
+    border: 4px solid #e5e7eb;
+    transition: border-color 0.3s ease;
+}
+
+.team-member:hover .member-avatar {
+    border-color: #2563eb;
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-info h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.member-position {
+    color: #2563eb !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 1rem !important;
+}
+
+.member-description {
+    color: #6b7280 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.member-contact {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: #6b7280;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.contact-link i {
+    font-size: 1.1rem;
+}
+
+.team-empty {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6b7280;
+}
+
+.team-empty i {
+    font-size: 3rem;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.team-empty p {
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 /* Services Section */
@@ -735,6 +890,11 @@ section {
         grid-template-rows: repeat(2, 1fr);
         gap: 25px;
     }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -792,6 +952,16 @@ section {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 20px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .team-section {
+        padding: 20px;
+        margin-top: 2rem;
     }
 
     .hero-buttons {

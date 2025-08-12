@@ -56,7 +56,7 @@ Visit our portal at: `http://localhost:3000` (when running locally)
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Gana498/dts-portal.git
    cd dts-portal
    ```
 
