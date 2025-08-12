@@ -63,6 +63,32 @@ export const fetchTeamMember = async (id) => {
 };
 
 /**
+ * Add a new team member
+ * @param {Object} teamMember - Team member data
+ * @returns {Promise<Object>} Created team member object
+ */
+export const addTeamMember = async (teamMember) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/team`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(teamMember),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Error adding team member:', error);
+    throw error;
+  }
+};
+
+/**
  * Team API service with error handling
  */
 export const teamService = {
@@ -81,5 +107,14 @@ export const teamService = {
    */
   async getTeamMember(id) {
     return await fetchTeamMember(id);
+  },
+
+  /**
+   * Add a new team member
+   * @param {Object} teamMember - Team member data
+   * @returns {Promise<Object>} Created team member object
+   */
+  async addTeamMember(teamMember) {
+    return await addTeamMember(teamMember);
   }
 };

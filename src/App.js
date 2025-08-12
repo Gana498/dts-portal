@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -7,19 +8,32 @@ import Blog from './components/Blog';
 import Careers from './components/Careers';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AddTeamMember from './components/AddTeamMember';
 
-function App() {
+// Home page component that contains all sections
+const HomePage = () => {
   return (
     <>
-      <Navbar />
       <Hero />
       <About />
       <Services />
       <Blog />
       <Careers />
       <Contact />
-      <Footer />
     </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/add-team-member" element={<AddTeamMember />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
